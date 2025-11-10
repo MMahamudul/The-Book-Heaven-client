@@ -9,7 +9,7 @@ export default function Banner() {
     {
       title: "Discover Your Next Great Read",
       text: "Explore thousands of books across genres — from timeless classics to modern favorites.",
-      img: "https://i.ibb.co/MDd42zkx/paige-cody-es-AIGze-Mq-U-unsplash.jpg",
+      img: "https://i.ibb.co/hJ0sxwDV/try.jpg",
     },
     {
       title: "Create and Share Your Collection",
@@ -31,7 +31,7 @@ export default function Banner() {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2000,
+          delay: 2500,
           disableOnInteraction: false,
         }}
         pagination={{ clickable: true }}

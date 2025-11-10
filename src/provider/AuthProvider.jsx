@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { GoogleAuthProvider } from "firebase/auth";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext();
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
