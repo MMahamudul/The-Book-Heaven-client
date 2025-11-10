@@ -1,0 +1,146 @@
+[
+  {
+    "title": "Famous People, Famous Life",
+    "author": "Clara Whitman",
+    "genre": "Biography",
+    "rating": 4.4,
+    "summary": "A captivating collection of short biographies that reveal the untold struggles behind the glamorous lives of history’s most influential figures.",
+    "coverImage": "https://i.ibb.co/q7GchcB/book1.jpg",
+    "userEmail": "reader01@example.com"
+  },
+  {
+    "title": "One Day in the Life of Ivan Denisovich",
+    "author": "Aleksandr Solzhenitsyn",
+    "genre": "Historical Fiction",
+    "rating": 4.8,
+    "summary": "A harrowing yet deeply human account of survival inside a Soviet labor camp, capturing a single day that defines a man’s spirit.",
+    "coverImage": "https://i.ibb.co/6tkcyGd/book2.jpg",
+    "userEmail": "reader02@example.com"
+  },
+  {
+    "title": "When We Flew Away",
+    "author": "Hannah Fielding",
+    "genre": "Contemporary Fiction",
+    "rating": 4.5,
+    "summary": "Two childhood friends escape their small town and chase their dreams across continents, only to discover what truly matters was never far away.",
+    "coverImage": "https://i.ibb.co/FYcV7qq/book3.jpg",
+    "userEmail": "reader03@example.com"
+  },
+  {
+    "title": "The Best Year of Your Life",
+    "author": "Debbie Ford",
+    "genre": "Self-Help",
+    "rating": 4.3,
+    "summary": "An inspiring guide to turning dreams into achievable goals and making the next 365 days your most transformative year yet.",
+    "coverImage": "https://i.ibb.co/8Nmq2rL/book4.jpg",
+    "userEmail": "reader04@example.com"
+  },
+  {
+    "title": "The Good Life",
+    "author": "Robert Waldinger",
+    "genre": "Non-Fiction",
+    "rating": 4.7,
+    "summary": "Based on the world’s longest scientific study of happiness, this book explores what truly makes life fulfilling beyond wealth or fame.",
+    "coverImage": "https://i.ibb.co/Q9sYQvn/book5.jpg",
+    "userEmail": "reader05@example.com"
+  },
+  {
+    "title": "Company of One",
+    "author": "Paul Jarvis",
+    "genre": "Business",
+    "rating": 4.6,
+    "summary": "A revolutionary look at how staying small and independent can bring more freedom, creativity, and success in modern entrepreneurship.",
+    "coverImage": "https://i.ibb.co/Fx6Sk6M/book6.jpg",
+    "userEmail": "reader06@example.com"
+  },
+  {
+    "title": "Getting Life",
+    "author": "Michael Morton",
+    "genre": "Memoir",
+    "rating": 4.9,
+    "summary": "A heartbreaking yet inspiring true story of a man wrongly imprisoned for 25 years who fought to reclaim his freedom and rebuild his life.",
+    "coverImage": "https://i.ibb.co/nRQ6L1Z/book7.jpg",
+    "userEmail": "reader07@example.com"
+  },
+  {
+    "title": "The Psychology of Money",
+    "author": "Morgan Housel",
+    "genre": "Finance",
+    "rating": 4.8,
+    "summary": "An insightful exploration of how human behavior influences financial decisions, and why managing money is more about mindset than math.",
+    "coverImage": "https://i.ibb.co/6mVdK6k/book8.jpg",
+    "userEmail": "reader08@example.com"
+  },
+  {
+    "title": "Run for Your Life",
+    "author": "James Patterson",
+    "genre": "Thriller",
+    "rating": 4.5,
+    "summary": "A detective must stop a ruthless serial killer who believes he’s cleansing New York City—one victim at a time.",
+    "coverImage": "https://i.ibb.co/zVsjkDd/book9.jpg",
+    "userEmail": "reader09@example.com"
+  },
+  {
+    "title": "The Life of Chunk",
+    "author": "Liam O’Connor",
+    "genre": "Humor",
+    "rating": 4.1,
+    "summary": "A hilarious and heartwarming story of a lazy golden retriever who accidentally becomes a social media star.",
+    "coverImage": "https://i.ibb.co/hmHQfh3/book10.jpg",
+    "userEmail": "reader10@example.com"
+  },
+  {
+    "title": "The Lie",
+    "author": "C.L. Taylor",
+    "genre": "Psychological Thriller",
+    "rating": 4.4,
+    "summary": "A gripping story of four friends whose dark secret resurfaces, threatening to destroy everything they’ve built.",
+    "coverImage": "https://i.ibb.co/SNfKKz0/book11.jpg",
+    "userEmail": "reader11@example.com"
+  },
+  {
+    "title": "The Perfect Life",
+    "author": "Nuala Ellwood",
+    "genre": "Suspense",
+    "rating": 4.3,
+    "summary": "A woman who seems to have it all slowly unravels when the truth about her carefully constructed life begins to surface.",
+    "coverImage": "https://i.ibb.co/hWNQG2P/book12.jpg",
+    "userEmail": "reader12@example.com"
+  },
+  {
+    "title": "Essential Life Skills for Teens",
+    "author": "David Skiddy",
+    "genre": "Self-Improvement",
+    "rating": 4.6,
+    "summary": "A practical guide for teenagers to build confidence, discipline, and emotional intelligence for real-world success.",
+    "coverImage": "https://i.ibb.co/BsxT4dC/book13.jpg",
+    "userEmail": "reader13@example.com"
+  },
+  {
+    "title": "The Chronicles of Narnia",
+    "author": "C.S. Lewis",
+    "genre": "Fantasy",
+    "rating": 5.0,
+    "summary": "A timeless tale of courage, friendship, and the eternal battle between good and evil in the magical land of Narnia.",
+    "coverImage": "https://i.ibb.co/RgCv8qK/book14.jpg",
+    "userEmail": "reader14@example.com"
+  },
+  {
+    "title": "Stupore e Tremori",
+    "author": "Amélie Nothomb",
+    "genre": "Literary Fiction",
+    "rating": 4.2,
+    "summary": "A witty and sharp portrayal of a young Belgian woman’s absurd experience working for a Japanese corporation.",
+    "coverImage": "https://i.ibb.co/tDFPxSt/book15.jpg",
+    "userEmail": "reader15@example.com"
+  },
+  {
+    "title": "The Fine Print",
+    "author": "Lauren Asher",
+    "genre": "Romance",
+    "rating": 4.7,
+    "summary": "A charming, emotional story about ambition, dreams, and falling for someone who challenges everything you thought you wanted.",
+    "coverImage": "https://i.ibb.co/R2Whb6v/book16.jpg",
+    "userEmail": "reader16@example.com"
+  }
+]
