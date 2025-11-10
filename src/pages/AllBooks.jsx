@@ -56,7 +56,7 @@ const AllBooks = () => {
           </td>
           <td className="font-semibold">{book.rating}</td>
           <th>
-            <Link  className="btn-ghost btn-md btn btn-outline btn-accent px-6 py-3 rounded-lg text-md"> View Details</Link>
+            <Link to={`/book-details/${book._id}`} className="btn-ghost btn-md btn btn-outline btn-accent px-6 py-3 rounded-lg text-md"> View Details</Link>
           </th>
         </tr>
       ))}

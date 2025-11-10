@@ -8,6 +8,7 @@ import AddBook from "../pages/AddBook";
 import MyBook from "../pages/MyBook";
 import Signin from "../pages/Signin";
 import ErrorPage from "../pages/ErrorPage";
+import BookDetails from './../pages/BookDetails';
 
 
 
@@ -18,12 +19,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, 
         element: <Home></Home> },
-        /* {
-            path: '/services',
-            element:<Services></Services>,
-            loader: ()=>fetch('/petServices.json'),
-            hydrateFallbackElement: <Loading></Loading>
-        }, */
+        
         {
             path: '/all-books',
             element:<AllBooks></AllBooks>,
@@ -37,6 +33,11 @@ export const router = createBrowserRouter([
         {
             path: '/my-books',
             element:<MyBook></MyBook>,
+            
+        },
+        {
+            path: '/book-details/:id',
+            element:<BookDetails></BookDetails>,
             
         },
 
