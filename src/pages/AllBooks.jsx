@@ -2,6 +2,7 @@ import React from 'react';
 import useAxios from '../hooks/useAxios';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { Link } from 'react-router';
 
 const AllBooks = () => {
     const [books, setBooks] = useState([]);
@@ -37,7 +38,7 @@ const AllBooks = () => {
           <td>
             <div className="flex items-center gap-3">
               <div className="avatar">
-                <div className="h-40 w-35">
+                <div className="h-50 w-45">
                   <img
                     src={book.coverImage}
                     alt={book.title}
@@ -45,17 +46,17 @@ const AllBooks = () => {
                 </div>
               </div>
               <div>
-                <div className="font-bold">{book.title}</div>
-                <div className="text-sm opacity-50">{book.author}</div>
+                <div className="text-lg font-bold">{book.title}</div>
+                <div className="text-sm opacity-80">{book.author}</div>
               </div>
             </div>
           </td>
-          <td>
+          <td className="font-semibold">
             {book.genre}
           </td>
-          <td>{book.rating}</td>
+          <td className="font-semibold">{book.rating}</td>
           <th>
-            <button className="btn-ghost btn-md btn btn-outline btn-accent px-6 py-3 rounded-lg">View Details</button>
+            <Link  className="btn-ghost btn-md btn btn-outline btn-accent px-6 py-3 rounded-lg text-md"> View Details</Link>
           </th>
         </tr>
       ))}
