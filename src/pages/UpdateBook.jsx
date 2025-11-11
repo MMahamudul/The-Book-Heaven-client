@@ -25,13 +25,15 @@ const UpdateBook = () => {
         try {
     const result = await instance.put(`/update-book/${book._id}`, updatedBook);
     if (result.data.modifiedCount) {
+        
     Swal.fire("Success!", "Book updated successfully!", "success");
+   
      }
     } catch (err) {
   console.error(err);
   Swal.fire("Error", "Failed to update book!", "error");
     }
-    navigate('/all-books')
+     navigate('/all-books')
 
    }
 

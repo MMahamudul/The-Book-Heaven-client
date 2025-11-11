@@ -5,12 +5,12 @@ import AuthLayout from "../layouts/AuthLayout";
 import Register from "../pages/REgister";
 import AllBooks from "../pages/AllBooks";
 import AddBook from "../pages/AddBook";
-import MyBook from "../pages/MyBook";
 import Signin from "../pages/Signin";
 import ErrorPage from "../pages/ErrorPage";
 import BookDetails from './../pages/BookDetails';
 import PrivateRoute from "../provider/PrivateRoute";
 import UpdateBook from "../pages/UpdateBook";
+import MyBooks from "../pages/MyBooks";
 
 
 
@@ -36,19 +36,23 @@ export const router = createBrowserRouter([
         },
         {
             path: '/my-books',
-            element:<MyBook></MyBook>,
+            element:<PrivateRoute>
+                <MyBooks></MyBooks>
+            </PrivateRoute>
             
         },
         {
             path: '/book-details/:id',
             element:<PrivateRoute>
                 <BookDetails></BookDetails>
-                </PrivateRoute>,
+                </PrivateRoute>
             
         },
         {
             path: '/update-book/:id',
-            element:<UpdateBook></UpdateBook>,
+            element:<PrivateRoute>
+                <UpdateBook></UpdateBook>
+                </PrivateRoute>
                 
             
         },
