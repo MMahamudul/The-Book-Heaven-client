@@ -27,7 +27,7 @@ const MyBooks = () => {
         return <Loading></Loading>
     }
     return (
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto min-h-screen">
   <table className="table">
     
     <thead>
@@ -65,7 +65,13 @@ const MyBooks = () => {
           </td>
           <td className="font-semibold">{book.rating}</td>
           <th>
-            <Link to={`/book-details/${book._id}`} className="btn-ghost btn-md btn btn-outline btn-accent px-6 py-3 rounded-lg text-md"> View Details</Link>
+            <Link to={`/update-book/${book._id}`} state={{ book }} className="btn-ghost btn-md btn btn-outline btn-accent px-6 py-3 mx-10 rounded-lg text-md">
+  UPDATE
+</Link>
+            
+          </th>
+          <th>
+            <Link to={`/delete-book/${book._id}`} className="btn-ghost btn-md btn btn-outline btn-accent px-6 py-3  rounded-lg text-md"> DELETE</Link>
           </th>
         </tr>
       ))}

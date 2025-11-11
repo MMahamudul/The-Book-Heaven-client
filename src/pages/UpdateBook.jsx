@@ -4,9 +4,12 @@ import useAxios from "../hooks/useAxios";
 import { useLocation, useNavigate } from "react-router";
 
 const UpdateBook = () => {
+ 
+  
     const navigate= useNavigate();
      const { state } = useLocation();
       const { book } = state || {};
+      console.log(book);
      const instance = useAxios();
     
    const handleUpdateBook = async (e) =>{
@@ -20,6 +23,9 @@ const UpdateBook = () => {
             summary: e.target.summary.value,
             coverImage: e.target.photo.value,
             name: e.target.name.value,
+            created_at: new Date(),
+            
+
           
         }
         try {
@@ -33,7 +39,7 @@ const UpdateBook = () => {
   console.error(err);
   Swal.fire("Error", "Failed to update book!", "error");
     }
-     navigate('/all-books')
+     navigate('/my-books')
 
    }
 

@@ -49,8 +49,9 @@ const BookDetails = () => {
           </div>
 
           <div className="flex gap-4">
-            <Link to= {`/update-book/${detail._id}`} state={{ book: detail }} className="btn btn-accent text-white px-6">Update</Link>
-            <Link to= {`/delete-book/${detail._id}`}  className="btn btn-outline btn-accent px-6">Remove</Link>
+            {/* <Link to= {`/update-book/${detail._id}`} state={{ book: detail }} className="btn btn-accent text-white px-6">Update</Link> */}
+           {/*  <Link to= {`/delete-book/${detail._id}`}  className="btn btn-outline btn-accent px-6">Remove</Link> */}
+           <Link to="/" className="btn btn-outline btn-accent px-6">Go Back Home</Link>
           </div>
         </div>
       </div>
