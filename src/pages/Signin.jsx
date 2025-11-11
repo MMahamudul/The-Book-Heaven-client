@@ -4,18 +4,22 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate} from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
+import { useLocation } from 'react-router';
+
 
 const Signin = () => {
 
     const {logIn, setUser, googleSignIn,} = use(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+    
     
 
     const handleGoogleLogIn = () =>{
     googleSignIn()
     .then(()=>{
         toast.success('You Google Login Was Successful');
-        navigate('/');
+        navigate(`${location.state ? location.state : '/'}`);
      
     })
     .catch((error)=>{
@@ -36,12 +40,14 @@ const Signin = () => {
         const user = res.user;
         toast.success('You Have Signed In Successfully');
         setUser(user);
-        navigate('/');
+        navigate(`${location.state ? location.state : '/'}`);
         })
         .catch(() => {
-        /* const errorCode = error.code; */
-        /* const errorMessage = error.message; */
-        toast.error('Login Failed')
+        /* const errorCode = err.code; */
+        
+       /*  const errorMessage = err.message; */
+        
+        toast.error('Either Username or Password is Wrong! Try With Correct Username and Password')
         });
 
     }

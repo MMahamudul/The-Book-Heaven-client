@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import MyLink from '../MyLink';
 import logo from '../../assets/logo.png'
 import icon from '../../assets/icon.png';
@@ -8,9 +8,12 @@ import { AuthContext } from '../../provider/AuthProvider';
 
 const Navbar = () => {
   const {user, logOut} = use(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogout = () =>{
     logOut();
+    navigate('/');
+
     
   }
     
