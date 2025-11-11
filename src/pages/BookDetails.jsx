@@ -1,6 +1,6 @@
 import React from "react";
 import useAxios from "../hooks/useAxios";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import { useEffect } from "react";
 import { useState } from "react";
 
@@ -49,8 +49,8 @@ const BookDetails = () => {
           </div>
 
           <div className="flex gap-4">
-            <button className="btn btn-accent text-white px-6">Buy Now</button>
-            <button className="btn btn-outline btn-accent px-6">Add to Wishlist</button>
+            <Link to= {`/update-book/${detail._id}`} state={{ book: detail }} className="btn btn-accent text-white px-6">Update</Link>
+            <Link to= {`/delete-book/${detail._id}`}  className="btn btn-outline btn-accent px-6">Remove</Link>
           </div>
         </div>
       </div>
