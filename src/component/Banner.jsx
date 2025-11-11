@@ -3,6 +3,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { Link } from "react-router";
 
 export default function Banner() {
   const slides = [
@@ -58,12 +59,12 @@ export default function Banner() {
                   {slide.text}
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <button className="btn btn-accent text-white px-6 py-3 rounded-lg text-lg shadow-md">
+                  <Link to='/all-books'  className="btn btn-accent text-white px-6 py-3 rounded-lg text-lg shadow-md">
                     All Books
-                  </button>
-                  <button className="btn btn-outline btn-accent px-6 py-3 rounded-lg text-lg">
-                    Create Book
-                  </button>
+                  </Link>
+                  <Link to='/add-book' className="btn btn-outline btn-accent px-6 py-3 rounded-lg text-lg">
+                    Add Book
+                  </Link>
                 </div>
               </div>
             </div>
