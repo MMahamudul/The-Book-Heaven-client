@@ -9,6 +9,7 @@ import MyBook from "../pages/MyBook";
 import Signin from "../pages/Signin";
 import ErrorPage from "../pages/ErrorPage";
 import BookDetails from './../pages/BookDetails';
+import PrivateRoute from "../provider/PrivateRoute";
 
 
 
@@ -37,7 +38,9 @@ export const router = createBrowserRouter([
         },
         {
             path: '/book-details/:id',
-            element:<BookDetails></BookDetails>,
+            element:<PrivateRoute>
+                <BookDetails></BookDetails>
+                </PrivateRoute>,
             
         },
 
