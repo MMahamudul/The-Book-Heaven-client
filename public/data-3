@@ -1,0 +1,63 @@
+[
+  {
+    "title": "https://i.ibb.co/cXZL5rrK/Pother-Panchali.jpg",
+    "author": "Bibhutibhushan Bandyopadhyay",
+    "genre": "Classic Fiction",
+    "rating": 4.8,
+    "summary": "A touching portrayal of rural Bengal and the struggles of a poor family, centered around the lives of Apu and Durga.",
+    "coverImage": "https://i.ibb.co/z2RjDhp/pather-panchali.png",
+    "userEmail": "reader06@example.com",
+    "created_at": "2025-10-09T18:34:22Z"
+  },
+  {
+    "title": "Gitanjali",
+    "author": "Rabindranath Tagore",
+    "genre": "Poetry",
+    "rating": 4.9,
+    "summary": "A collection of deeply spiritual poems expressing devotion, love, and the beauty of nature, which earned Tagore the Nobel Prize.",
+    "coverImage": "https://i.ibb.co/nd3Nj1V/Gitanjali.webp",
+    "userEmail": "reader06@example.com",
+    "created_at": "2025-10-09T18:34:22Z"
+  },
+  {
+    "title": "Devdas",
+    "author": "Sarat Chandra Chattopadhyay",
+    "genre": "Romance, Tragedy",
+    "rating": 4.7,
+    "summary": "A tragic love story of Devdas and Paro, exploring the pain of lost love and social constraints in early 20th-century Bengal.",
+    "coverImage": "https://i.ibb.co/N6zjr8t5/devdas.jpg",
+    "userEmail": "reader06@example.com",
+    "created_at": "2025-10-09T18:34:22Z"
+  },
+  {
+    "title": "Chokher Bali",
+    "author": "Rabindranath Tagore",
+    "genre": "Drama, Social Fiction",
+    "rating": 4.6,
+    "summary": "A story of love, jealousy, and betrayal revolving around Binodini, a young widow in Bengal’s conservative society.",
+    "coverImage": "https://i.ibb.co/LKPZPvw/Chokher-Bali.jpg",
+    "userEmail": "reader06@example.com",
+    "created_at": "2025-10-09T18:34:22Z"
+  },
+  {
+    "title": "Srikanta",
+    "author": "Sarat Chandra Chattopadhyay",
+    "genre": "Philosophical Fiction",
+    "rating": 4.5,
+    "summary": "A semi-autobiographical tale of Srikanta, exploring freedom, love, and the complexities of human relationships.",
+    "coverImage": "https://i.ibb.co/q3kXrTN3/Srikanta.webp ",
+    "userEmail": "reader06@example.com",
+    "created_at": "2025-10-09T18:34:22Z"
+  },
+  {
+    "title": "Feluda Samagra",
+    "author": "Satyajit Ray",
+    "genre": "Detective Fiction",
+    "rating": 4.9,
+    "summary": "A collection of thrilling detective stories featuring Feluda, the sharp and witty Bengali sleuth beloved by all ages.",
+    "coverImage": "https://i.ibb.co/4w8P2gjX/Feluda-Samagra.jpg",
+    "userEmail": "reader06@example.com",
+    "created_at": "2025-10-09T18:34:22Z"
+  }
+]
+
