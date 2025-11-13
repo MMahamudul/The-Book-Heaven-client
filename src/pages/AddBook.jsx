@@ -1,154 +1,143 @@
-import React from "react";
+import React, { useContext } from "react";
 import useAxios from "../hooks/useAxios";
-import { use } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router"; 
 
 const AddBook = () => {
-    const navigate= useNavigate();
-    const instance = useAxios();
-    const {user} =use(AuthContext)
-    /* console.log(user) */
+  const navigate = useNavigate();
+  const instance = useAxios();
+  const { user } = useContext(AuthContext);
 
-    const handleAddBook = (e) =>{
-        e.preventDefault();
+  const handleAddBook = (e) => {
+    e.preventDefault();
 
-        
+    const newBook = {
+      title: e.target.title.value,
+      author: e.target.author.value,
+      genre: e.target.genre.value,
+      rating: e.target.rating.value,
+      summary: e.target.summary.value,
+      coverImage: e.target.photo.value,
+      name: e.target.name.value,
+      userName: user.displayName,
+      userEmail: user.email,
+      created_at: new Date(),
+    };
 
-        const newBook = 
-        {
-            title: e.target.title.value,
-            author: e.target.author.value,
-            genre: e.target.genre.value,
-            rating: e.target.rating.value,
-            summary: e.target.summary.value,
-            coverImage: e.target.photo.value,
-            /* name: e.target.name.value, */
-            name: e.target.name.value,
-            /* email: e.target.email.value, */
-            userName: user.displayName,
-            userEmail: user.email,
-            created_at: new Date(),
-
-
-        }
-
-       /*  console.log(title, author, genre, rating, summary, name , email, photo) */
-
-       instance.post('/add-book', newBook)
-       .then(data => {
-        const result = data.data;
-    if(result.insertedId){
+    instance.post("/add-book", newBook).then((data) => {
+      const result = data.data;
+      if (result.insertedId) {
         Swal.fire({
-        title: "Book Added Successfully!",
-        icon: "success",
-        draggable: true
+          title: "Book Added Successfully!",
+          icon: "success",
+          draggable: true,
         });
-    }
-    navigate('/all-books')
-    
-    
-    })
-
-    }
-
-
+      }
+      navigate("/all-books");
+    });
+  };
 
   return (
-    <div className="min-h-screen bg-base-100 flex items-center justify-center p-6">
-      <div className="card w-full max-w-2xl shadow-2xl bg-base-200 border border-accent/40">
-        <div className="card-body">
-          <h2 className="text-3xl font-bold text-center text-accent mb-6">
+    <div className="min-h-screen bg-base-100 flex items-center justify-center px-4 py-10 sm:px-6 lg:px-8">
+      <div className="card w-full max-w-3xl shadow-xl bg-base-200 border border-accent/30 rounded-2xl">
+        <div className="card-body p-6 sm:p-10">
+         
+          <h2 className="text-2xl sm:text-3xl font-bold text-center text-accent mb-6">
             Add a New Book
           </h2>
 
-          <form onSubmit={handleAddBook} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Title */}
+         
+          <form
+            onSubmit={handleAddBook}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+          >
+           
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-bold my-2">Title</span>
               </label>
               <input
                 type="text"
-                name= 'title'
-                placeholder="Name of the Book"
-                className="input input-bordered border-2 border-accent/60 w-full focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent"
+                name="title"
+                placeholder="Book title"
+                className="input input-bordered border-2 border-accent/60 w-full focus:outline-none focus:ring-2 focus:ring-accent/60"
                 required
               />
             </div>
 
-            {/* Author */}
+            
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-bold my-2">Author</span>
               </label>
               <input
                 type="text"
-                name= 'author'
+                name="author"
                 placeholder="Author name"
-                className="input input-bordered border-2 border-accent/60 w-full focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent"
+                className="input input-bordered border-2 border-accent/60 w-full focus:outline-none focus:ring-2 focus:ring-accent/60"
                 required
               />
             </div>
 
-            {/* Genre */}
+           
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-bold my-2">Genre</span>
               </label>
               <input
                 type="text"
-                name= 'genre'
-                placeholder="e.g., Fiction, Fantasy, Non-Fiction"
-                className="input input-bordered border-2 border-accent/70 w-full focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent"
+                name="genre"
+                placeholder="e.g., Fantasy, Thriller"
+                className="input input-bordered border-2 border-accent/60 w-full focus:outline-none focus:ring-2 focus:ring-accent/60"
                 required
               />
             </div>
 
-            {/* Rating */}
+            
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-bold my-2">Rating</span>
               </label>
               <input
                 type="number"
-                name= 'rating'
+                name="rating"
+                min="1"
+                max="5"
                 step="0.1"
                 placeholder="1–5"
-                className="input input-bordered border-2 border-accent/70 w-full focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent"
+                className="input input-bordered border-2 border-accent/60 w-full focus:outline-none focus:ring-2 focus:ring-accent/60"
                 required
               />
             </div>
 
-            {/* Summary */}
-            <div className="form-control md:col-span-2">
+            
+            <div className="form-control sm:col-span-2">
               <label className="label">
-                <span className="label-text font-bold mr-2">Summary</span>
+                <span className="label-text font-bold my-2">Summary</span>
               </label>
               <textarea
-                placeholder="Write a short summary of the book..."
-                name= 'summary'
-                className="textarea textarea-bordered border-2 border-accent/70 h-28 focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent"
+                name="summary"
+                placeholder="Write a short summary..."
+                className="textarea textarea-bordered border-2 border-accent/60 h-28 sm:h-32 w-full focus:outline-none focus:ring-2 focus:ring-accent/60"
                 required
               ></textarea>
             </div>
 
-            {/* Cover Image */}
-            <div className="form-control md:col-span-2">
+           
+            <div className="form-control sm:col-span-2">
               <label className="label">
                 <span className="label-text font-bold my-2">Cover Image URL</span>
               </label>
               <input
                 type="url"
                 name="photo"
-                placeholder="https://example.com/image.jpg"
-                className="input input-bordered border-2 border-accent/70 w-full focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent"
-                
+                placeholder="https://example.com/cover.jpg"
+                className="input input-bordered border-2 border-accent/60 w-full focus:outline-none focus:ring-2 focus:ring-accent/60"
               />
             </div>
 
-            {/* User Email */}
+           
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-bold my-2">User Email</span>
@@ -156,13 +145,12 @@ const AddBook = () => {
               <input
                 type="email"
                 defaultValue={user?.email}
-                placeholder="example@email.com"
-                className="input input-bordered border-2 border-accent/70 w-full focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent"
-                
+                readOnly
+                className="input input-bordered border-2 border-accent/60 w-full bg-gray-50 cursor-not-allowed text-gray-500"
               />
             </div>
 
-            {/* User Name */}
+            
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-bold my-2">User Name</span>
@@ -170,13 +158,13 @@ const AddBook = () => {
               <input
                 type="text"
                 defaultValue={user?.displayName}
-                placeholder="Added by..."
-                className="input input-bordered border-2 border-accent/70 w-full focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent"
+                readOnly
+                className="input input-bordered border-2 border-accent/60 w-full bg-gray-50 cursor-not-allowed text-gray-500"
               />
             </div>
 
-            {/* Submit Button */}
-            <div className="form-control md:col-span-2 mt-4">
+           
+            <div className="form-control sm:col-span-2 mt-2">
               <button className="btn btn-accent w-full text-lg font-semibold hover:scale-105 transition-transform duration-200">
                 Add Book
               </button>

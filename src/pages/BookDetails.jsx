@@ -13,7 +13,7 @@ const BookDetails = () => {
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState("");
 
-  // Fetch book details
+
   useEffect(() => {
     instance
       .get(`/book-details/${id}`)
@@ -21,7 +21,7 @@ const BookDetails = () => {
       .catch((err) => console.log(err));
   }, [id, instance]);
 
-  //  Fetch comments
+  
   useEffect(() => {
     instance
       .get(`/comments?bookId=${id}`)
@@ -29,7 +29,7 @@ const BookDetails = () => {
       .catch((err) => console.log(err));
   }, [id, instance]);
 
-  // Handle comment submission
+ 
   const handleComment = async (e) => {
     e.preventDefault();
     if (!commentText.trim()) {
@@ -56,7 +56,6 @@ const BookDetails = () => {
           showConfirmButton: false,
         });
 
-        // Instantly add the comment to the top of the list
         setComments((prev) => [data, ...prev]);
         setCommentText("");
       }
@@ -67,10 +66,10 @@ const BookDetails = () => {
   };
 
   return (
-    <div className="min-h-screen bg-base-100 flex items-center justify-center py-12 px-4">
-      <div className="max-w-5xl w-full bg-white shadow-xl rounded-2xl overflow-hidden grid md:grid-cols-2">
-        {/* Left side: Book Cover */}
-        <div className="relative">
+    <div className="min-h-screen bg-base-100 flex items-center justify-center py-6 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl w-full bg-white shadow-xl rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
+        
+        <div className="relative w-full h-80 md:h-auto">
           <img
             src={detail.coverImage}
             alt={detail.title}
@@ -78,23 +77,23 @@ const BookDetails = () => {
           />
         </div>
 
-        {/* Right side: Book Info + Comments */}
-        <div className="p-8 flex flex-col justify-center">
-          <h1 className="text-3xl font-bold text-accent mb-2">{detail.title}</h1>
+        
+        <div className="p-6 md:p-8 flex flex-col justify-center">
+          <h1 className="text-2xl sm:text-3xl font-bold text-accent mb-2">{detail.title}</h1>
           <p className="text-gray-600 text-sm mb-4">
             by <span className="font-semibold text-gray-800">{detail.author}</span>
           </p>
 
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex flex-wrap gap-2 mb-4">
             <span className="badge badge-accent text-white">{detail.genre}</span>
             <span className="badge badge-outline">{detail.rating}</span>
           </div>
 
-          <p className="text-gray-700 leading-relaxed mb-6">{detail.summary}</p>
+          <p className="text-gray-700 leading-relaxed mb-4 sm:mb-6">{detail.summary}</p>
 
           <div className="divider my-4"></div>
 
-          <div className="space-y-3 text-sm text-gray-600 mb-6">
+          <div className="space-y-2 text-sm text-gray-600 mb-4 sm:mb-6">
             <p>
               <span className="font-semibold text-gray-800">Added by:</span> {detail.userEmail}
             </p>
@@ -104,27 +103,27 @@ const BookDetails = () => {
             </p>
           </div>
 
-          {/* Comment Section */}
-          <div className="mb-6">
+          
+          <div className="mb-4 sm:mb-6">
             <h2 className="font-semibold text-lg text-accent mb-2">
               Leave your comment here
             </h2>
 
-            <form onSubmit={handleComment} className="flex gap-2 items-center mb-4">
+            <form onSubmit={handleComment} className="flex flex-col sm:flex-row gap-2 items-start sm:items-center mb-4">
               <input
                 type="text"
                 value={commentText}
                 onChange={(e) => setCommentText(e.target.value)}
                 placeholder="Write a comment..."
-                className="input input-accent w-full"
+                className="input input-accent w-full sm:flex-1"
               />
-              <button type="submit" className="btn btn-outline btn-accent py-2 rounded-xl">
+              <button type="submit" className="btn btn-outline btn-accent py-2 rounded-xl w-full sm:w-auto">
                 Submit
               </button>
             </form>
 
-            {/* Display Comments */}
-            <div className="space-y-4 max-h-64 overflow-y-auto">
+            
+            <div className="space-y-3 max-h-64 overflow-y-auto">
               {comments.length === 0 && (
                 <p className="text-gray-500">No comments yet.</p>
               )}
@@ -151,7 +150,7 @@ const BookDetails = () => {
             </div>
           </div>
 
-          <Link to="/" className="btn btn-outline btn-accent px-6 mt-4">
+          <Link to="/" className="btn btn-outline btn-accent px-6 mt-4 self-start">
             Go Back Home
           </Link>
         </div>

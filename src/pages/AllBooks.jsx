@@ -1,36 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import useAxios from '../hooks/useAxios';
-import { Link } from 'react-router';
+import React, { useState, useEffect } from "react";
+import useAxios from "../hooks/useAxios";
+import { Link } from "react-router";
 
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
-  const [sortOrder, setSortOrder] = useState(''); // '' | 'asc' | 'desc'
+  const [sortOrder, setSortOrder] = useState(""); 
   const instance = useAxios();
 
-  // Fetch books from server
   useEffect(() => {
-    instance.get('/all-books')
-      .then(res => setBooks(res.data))
-      .catch(error => console.log(error));
+    instance
+      .get("/all-books")
+      .then((res) => setBooks(res.data))
+      .catch((error) => console.log(error));
   }, [instance]);
 
-  // Sort books based on selected order
+  
   const sortedBooks = [...books].sort((a, b) => {
-    if (sortOrder === 'asc') return a.rating - b.rating;
-    if (sortOrder === 'desc') return b.rating - a.rating;
+    if (sortOrder === "asc") return a.rating - b.rating;
+    if (sortOrder === "desc") return b.rating - a.rating;
     return 0;
   });
 
   return (
-    <div>
-      <h1 className='text-3xl font-bold text-accent my-4 text-center'>
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      
+      <h1 className="text-3xl font-bold text-accent mb-6 text-center">
         All Books
       </h1>
 
-      {/* Sort Dropdown */}
-      <div className="flex justify-end mb-4 px-6">
+      
+      <div className="flex justify-end mb-6">
         <select
-          className="select select-bordered select-accent w-48"
+          className="select select-bordered select-accent w-48 text-sm md:text-base"
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value)}
         >
@@ -40,10 +41,9 @@ const AllBooks = () => {
         </select>
       </div>
 
-      {/* Table */}
-      <div className="overflow-x-auto">
-        <table className="table">
-          <thead>
+      <div className="hidden md:block overflow-x-auto rounded-lg shadow-sm">
+        <table className="table w-full">
+          <thead className=" text-accent">
             <tr>
               <th>Sl No.</th>
               <th>Book Name</th>
@@ -52,38 +52,81 @@ const AllBooks = () => {
               <th></th>
             </tr>
           </thead>
-
           <tbody>
             {sortedBooks.map((book, index) => (
-              <tr key={book._id}>
-                <th>{index + 1}</th>
+              <tr
+                key={book._id}
+                className="hover:bg-gray-50 border-b border-gray-100"
+              >
+                <td>{index + 1}</td>
                 <td>
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="h-20 w-16 rounded-md overflow-hidden">
-                        <img src={book.coverImage} alt={book.title} />
+                        <img
+                          src={book.coverImage}
+                          alt={book.title}
+                          className="object-cover w-full h-full"
+                        />
                       </div>
                     </div>
                     <div>
-                      <div className="text-lg font-bold">{book.title}</div>
-                      <div className="text-sm opacity-80">{book.author}</div>
+                      <div className="text-lg font-semibold">{book.title}</div>
+                      <div className="text-sm text-gray-500">
+                        {book.author}
+                      </div>
                     </div>
                   </div>
                 </td>
                 <td className="font-semibold">{book.genre}</td>
                 <td className="font-semibold">{book.rating}</td>
-                <th>
+                <td>
                   <Link
                     to={`/book-details/${book._id}`}
-                    className="btn btn-outline btn-accent btn-sm px-4 rounded-lg"
+                    className="btn btn-outline btn-accent btn-sm rounded-lg"
                   >
                     View Details
                   </Link>
-                </th>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
+      </div>
+
+      <div className="md:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+        {sortedBooks.map((book) => (
+          <div
+            key={book._id}
+            className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col"
+          >
+            <img
+              src={book.coverImage}
+              alt={book.title}
+              className="w-full h-60 object-cover"
+            />
+            <div className="p-4 flex flex-col flex-grow justify-between">
+              <div>
+                <h2 className="font-semibold text-lg text-gray-900">
+                  {book.title}
+                </h2>
+                <p className="text-sm text-gray-500">{book.author}</p>
+                <p className="mt-2 text-gray-700 text-sm">
+                  <span className="font-semibold">Genre:</span> {book.genre}
+                </p>
+                <p className="text-gray-700 text-sm">
+                  <span className="font-semibold">Rating:</span> {book.rating}
+                </p>
+              </div>
+              <Link
+                to={`/book-details/${book._id}`}
+                className="btn btn-outline btn-accent btn-sm mt-4 rounded-lg self-start"
+              >
+                View Details
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
