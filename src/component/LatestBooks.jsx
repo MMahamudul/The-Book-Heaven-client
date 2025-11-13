@@ -8,18 +8,22 @@ const LatestBooks = () => {
     const [loading, setLoading] = useState(true); 
 
     useEffect(() => {
-        instances.get('/latest-book')
-            .then(res => {
-                setLatestBooks(res.data);
-                setLoading(false); 
-            })
-            .catch(error => {
-                console.log(error);
-                setLoading(false); 
-            });
+        const fetchLatestBooks = async () => {
+            try {
+                const res = await instances.get('/latest-book');
+                console.log('API Response:', res.data); 
+                
+                setLatestBooks(Array.isArray(res.data) ? res.data : res.data.books || []);
+            } catch (error) {
+                console.error('Error fetching latest books:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchLatestBooks();
     }, [instances]);
 
-    
     if (loading) return <Loading />;
 
     return (
@@ -27,7 +31,7 @@ const LatestBooks = () => {
             <h1 className='text-3xl font-bold text-accent my-4 text-center'>Latest Books</h1>
             
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-5'>
-                {latestBooks.map(book => (
+                {(latestBooks || []).map(book => (
                     <div 
                         key={book._id}
                         className="bg-green-50 shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col justify-center items-center w-[400px] h-[500px]"
