@@ -6,15 +6,29 @@ import icon from "../../assets/icon.png";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   const handleLogout = () => {
     logOut();
     navigate("/");
   };
+
+   const toogleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
+
 
   return (
     <div className="navbar bg-base-100 shadow-sm relative z-[9999] overflow-visible">
@@ -53,12 +67,15 @@ const Navbar = () => {
       {/* Center links (hidden on mobile) */}
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
+
           <li className="mx-4"><MyLink to="/">Home</MyLink></li>
           <li className="mx-4"><MyLink to="/all-books">All Books</MyLink></li>
           <li className="mx-4"><MyLink to="/add-book">Add Book</MyLink></li>
           <li className="mx-4"><MyLink to="/my-books">My Books</MyLink></li>
+          
         </ul>
       </div>
+     
 
      
       <div className="navbar-end flex items-center gap-4 overflow-visible">
@@ -97,6 +114,13 @@ const Navbar = () => {
             Signin
           </Link>
         )}
+         <div>
+        <input
+           onChange={(e) => toogleTheme(e.target.checked)}
+           type="checkbox"
+           defaultChecked={localStorage.getItem('theme') === "dark"}
+           className="toggle"/>
+      </div>
       </div>
     </div>
   );
