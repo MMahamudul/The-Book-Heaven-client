@@ -11,6 +11,7 @@ const BookDetails = () => {
 
   const [detail, setDetail] = useState({});
   const [comments, setComments] = useState([]);
+  const [commentText, setCommentText] = useState("");
 
   // Fetch book details
   useEffect(() => {
@@ -20,7 +21,7 @@ const BookDetails = () => {
       .catch((err) => console.log(err));
   }, [id, instance]);
 
-  // Fetch comments for this book
+  //  Fetch comments
   useEffect(() => {
     instance
       .get(`/comments?bookId=${id}`)
@@ -28,32 +29,36 @@ const BookDetails = () => {
       .catch((err) => console.log(err));
   }, [id, instance]);
 
-  // Handle posting a new comment
+  // Handle comment submission
   const handleComment = async (e) => {
     e.preventDefault();
-    const input = e.target.previousElementSibling; // get the input field
-    const commentText = input.value.trim();
-    if (!commentText) {
+    if (!commentText.trim()) {
       Swal.fire({ title: "Please enter a comment!", icon: "warning" });
       return;
     }
 
     const form = {
       comment: commentText,
-      userName: user.displayName,
-      coverImage: user.photoURL,
+      userName: user?.displayName || "Anonymous",
+      coverImage: user?.photoURL || "",
       bookId: id,
       created_at: new Date(),
     };
 
     try {
       const { data } = await instance.post("/comments", form);
-      if (data.insertedId) {
-        Swal.fire({ title: "Comment Posted Successfully!", icon: "success" });
 
-        // Add the new comment to the top of the list
+      if (data._id) {
+        Swal.fire({
+          title: "Comment Posted Successfully!",
+          icon: "success",
+          timer: 1200,
+          showConfirmButton: false,
+        });
+
+        // Instantly add the comment to the top of the list
         setComments((prev) => [data, ...prev]);
-        input.value = "";
+        setCommentText("");
       }
     } catch (err) {
       console.error(err);
@@ -64,7 +69,7 @@ const BookDetails = () => {
   return (
     <div className="min-h-screen bg-base-100 flex items-center justify-center py-12 px-4">
       <div className="max-w-5xl w-full bg-white shadow-xl rounded-2xl overflow-hidden grid md:grid-cols-2">
-        {/* Book Cover */}
+        {/* Left side: Book Cover */}
         <div className="relative">
           <img
             src={detail.coverImage}
@@ -73,7 +78,7 @@ const BookDetails = () => {
           />
         </div>
 
-        {/* Book Details */}
+        {/* Right side: Book Info + Comments */}
         <div className="p-8 flex flex-col justify-center">
           <h1 className="text-3xl font-bold text-accent mb-2">{detail.title}</h1>
           <p className="text-gray-600 text-sm mb-4">
@@ -101,32 +106,36 @@ const BookDetails = () => {
 
           {/* Comment Section */}
           <div className="mb-6">
-            <h2 className="font-semibold text-lg text-accent mb-2">Leave your comment here</h2>
-            <div className="flex gap-2 items-center mb-4">
+            <h2 className="font-semibold text-lg text-accent mb-2">
+              Leave your comment here
+            </h2>
+
+            <form onSubmit={handleComment} className="flex gap-2 items-center mb-4">
               <input
                 type="text"
-                name="comment"
+                value={commentText}
+                onChange={(e) => setCommentText(e.target.value)}
                 placeholder="Write a comment..."
                 className="input input-accent w-full"
               />
-              <button
-                onClick={handleComment}
-                className="btn btn-outline btn-accent py-2 rounded-xl"
-              >
+              <button type="submit" className="btn btn-outline btn-accent py-2 rounded-xl">
                 Submit
               </button>
-            </div>
+            </form>
 
-            {/* Comments List */}
-            <div className="space-y-4">
-              {comments.length === 0 && <p className="text-gray-500">No comments yet.</p>}
+            {/* Display Comments */}
+            <div className="space-y-4 max-h-64 overflow-y-auto">
+              {comments.length === 0 && (
+                <p className="text-gray-500">No comments yet.</p>
+              )}
+
               {comments.map((c) => (
                 <div
                   key={c._id}
                   className="flex gap-3 items-start bg-gray-50 p-3 rounded-lg shadow-sm"
                 >
                   <img
-                    src={c.coverImage}
+                    src={c.coverImage || "/default-avatar.png"}
                     alt={c.userName}
                     className="w-10 h-10 rounded-full object-cover"
                   />
