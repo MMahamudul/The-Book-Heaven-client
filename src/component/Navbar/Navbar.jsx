@@ -8,6 +8,9 @@ import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import { useState } from "react";
 import { useEffect } from "react";
+import { FaSignInAlt } from "react-icons/fa";
+import { BiLogOut } from "react-icons/bi";
+
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -104,14 +107,14 @@ const Navbar = () => {
             onClick={handleLogout}
             className="btn btn-outline btn-accent px-6 py-3 rounded-lg text-lg"
           >
-            Logout
+            Logout <BiLogOut />
           </button>
         ) : (
           <Link
             to="/auth/signin"
             className="btn btn-outline btn-accent px-6 py-3 rounded-lg text-lg"
           >
-            Signin
+            Signin <FaSignInAlt />
           </Link>
         )}
          <div>

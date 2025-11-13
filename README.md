@@ -1,16 +1,13 @@
-# React + Vite
+Website Name : Book Heaven 
+Features:
+1. Browse & Discover Books: View a curated list of books with ratings, genres, and detailed descriptions.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+2. Book of the Week & Top Rated: Highlight featured books weekly and easily find the highest-rated reads.
 
-Currently, two official plugins are available:
+3. Add & Manage Your Books: Authenticated users can add new books, update details, or delete their own submissions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+4. Comment & Interact: Users can leave comments on book details, fostering community discussions.
 
-## React Compiler
+5. Responsive & Interactive UI: Built with React and TailwindCSS for a mobile-friendly, modern, and visually appealing experience
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Live Link: 

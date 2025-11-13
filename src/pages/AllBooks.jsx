@@ -1,34 +1,42 @@
 import React, { useState, useEffect } from "react";
 import useAxios from "../hooks/useAxios";
 import { Link } from "react-router";
+import Loading from "../component/Loading"; 
 
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
   const [sortOrder, setSortOrder] = useState(""); 
+  const [loading, setLoading] = useState(true); 
   const instance = useAxios();
 
   useEffect(() => {
     instance
       .get("/all-books")
-      .then((res) => setBooks(res.data))
-      .catch((error) => console.log(error));
+      .then((res) => {
+        setBooks(res.data);
+        setLoading(false); 
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false); 
+      });
   }, [instance]);
 
-  
   const sortedBooks = [...books].sort((a, b) => {
     if (sortOrder === "asc") return a.rating - b.rating;
     if (sortOrder === "desc") return b.rating - a.rating;
     return 0;
   });
 
+  
+  if (loading) return <Loading />;
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      
       <h1 className="text-3xl font-bold text-accent mb-6 text-center">
         All Books
       </h1>
 
-      
       <div className="flex justify-end mb-6">
         <select
           className="select select-bordered select-accent w-48 text-sm md:text-base"

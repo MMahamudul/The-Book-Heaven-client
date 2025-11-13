@@ -6,19 +6,27 @@ import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 const MyBooks = () => {
-  const { user, loading, setLoading } = useContext(AuthContext);
+  const { user, loading: userLoading, setLoading } = useContext(AuthContext);
   const instances = useAxios();
   const [myBooks, setMyBooks] = useState([]);
+  const [loading, setLocalLoading] = useState(true); 
 
   useEffect(() => {
     if (!user) return;
+
+    setLocalLoading(true);
     instances
       .get(`/my-books?email=${user.email}`)
       .then((res) => {
         setMyBooks(res.data);
+        setLocalLoading(false);
         setLoading(false);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        setLocalLoading(false);
+        setLoading(false);
+      });
   }, [user]);
 
   const handleDelete = (id) => {
@@ -48,7 +56,8 @@ const MyBooks = () => {
     });
   };
 
-  if (loading) return <Loading />;
+  
+  if (loading || userLoading) return <Loading />;
 
   return (
     <div className="min-h-screen px-4 py-8 max-w-7xl mx-auto">
@@ -110,7 +119,6 @@ const MyBooks = () => {
         </table>
       </div>
 
-      
       <div className="md:hidden grid grid-cols-1 sm:grid-cols-2 gap-6">
         {myBooks.map((book) => (
           <div
