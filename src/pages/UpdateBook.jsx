@@ -9,7 +9,7 @@ const UpdateBook = () => {
     const navigate= useNavigate();
      const { state } = useLocation();
       const { book } = state || {};
-      console.log(book);
+      /* console.log(book); */
      const instance = useAxios();
     
    const handleUpdateBook = async (e) =>{
