@@ -30,11 +30,11 @@ const LatestBooks = () => {
         <div>
             <h1 className='text-3xl font-bold text-accent my-4 text-center'>Latest Books</h1>
             
-            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-5'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 my-5'>
                 {(latestBooks || []).map(book => (
                     <div 
                         key={book._id}
-                        className="bg-green-50 shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col justify-center items-center w-[400px] h-[500px]"
+                        className="bg-green-50 overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col justify-center items-center w-[330px] h-[450px]"
                     >
                         <div className='p-5'>
                             <img
@@ -51,9 +51,9 @@ const LatestBooks = () => {
                                     <span className="text-sm bg-green-200 text-green-900 px-2 py-1 rounded-lg">{book.genre}</span>
                                     <span className="text-yellow-500 font-semibold">{book.rating}</span>
                                 </div>
-                                <p className="text-gray-700 text-sm line-clamp-3">{book.summary}</p>
+                                {/* <p className="text-gray-700 text-sm line-clamp-3">{book.summary}</p> */}
                             </div>
-                            <div className="mt-4 text-xs text-gray-400 pt-2 flex justify-between">
+                            <div className="mt-2 text-xs text-gray-400 pt-2 flex justify-between">
                                 <span>{book.userEmail}</span>
                             </div>
                         </div>

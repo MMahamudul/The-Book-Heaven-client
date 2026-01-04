@@ -113,7 +113,7 @@ const AllBooks = () => {
               alt={book.title}
               className="w-full h-60 object-cover"
             />
-            <div className="p-4 flex flex-col flex-grow justify-between">
+            <div className="p-4 flex flex-col grow justify-between">
               <div>
                 <h2 className="font-semibold text-lg text-gray-900">
                   {book.title}

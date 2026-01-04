@@ -9,12 +9,16 @@ const MainLayout = () => {
     const {state} = useNavigation()
     return (
     
-        <MyContainer>
+        <div>
             <Navbar></Navbar>
-           {state == "loading" ? <Loading></Loading> :  <Outlet></Outlet>}
+           <MyContainer>
+        
+             {state == "loading" ? <Loading></Loading> :  <Outlet></Outlet>}
+          
             <Footer></Footer>
+           </MyContainer>
 
-        </MyContainer>
+        </div>
 
     
         

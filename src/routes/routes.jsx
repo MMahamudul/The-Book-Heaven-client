@@ -11,6 +11,8 @@ import BookDetails from './../pages/BookDetails';
 import PrivateRoute from "../provider/PrivateRoute";
 import UpdateBook from "../pages/UpdateBook";
 import MyBooks from "../pages/MyBooks";
+import Blogs from "../component/Blogs";
+import Support from "../component/Support";
 
 
 
@@ -39,6 +41,20 @@ export const router = createBrowserRouter([
             element:<PrivateRoute>
                 <MyBooks></MyBooks>
             </PrivateRoute>
+            
+        },
+        {
+            path: '/blogs',
+            element:
+                <Blogs></Blogs>
+            
+            
+        },
+        {
+            path: '/support',
+            element:
+                <Support></Support>
+            
             
         },
         {

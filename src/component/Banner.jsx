@@ -1,71 +1,68 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Link } from "react-router";
+
+
+
 
 export default function Banner() {
   const slides = [
     {
-      title: "Discover Your Next Great Read",
-      text: "Explore thousands of books across genres — from timeless classics to modern favorites.",
-      img: "https://i.ibb.co/hJ0sxwDV/try.jpg",
+      title: "Discover Your Next Destination",
+      description: "Explore thousands of books across genres — from timeless classics to modern favorites.",
+      image: "https://i.ibb.co/gLDdb3sZ/header-6.avif",
     },
     {
       title: "Create and Share Your Collection",
-      text: "Add your favorite books, write reviews, and build your personal digital library.",
-      img: "https://i.ibb.co/LDXLK6nL/kourosh-qaffari-Rrhhzit-Yizg-unsplash.jpg",
+      description: "Add your favorite books, write reviews, and build your personal digital library.",
+      image: "https://i.ibb.co/fVtxd6rV/header-10.avif",
     },
     {
       title: "Join Our Reading Community",
-      text: "Connect with fellow readers, exchange ideas, and find your next recommendation.",
-      img: "https://i.ibb.co/FkZYdbh6/dollar-gill-0-V7-N62z-Zc-U-unsplash.jpg",
+      description: "Connect with fellow readers, exchange ideas, and find your next recommendation.",
+      image: "https://i.ibb.co/ccYYKXWM/header-2.jpg",
     },
   ];
 
  
-
   return (
-    <section className="w-full">
+    <section className="w-full text-accent text-4xl font-bold">
       <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
+        modules={[Autoplay, Pagination]}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
-        navigation={true}
-        loop={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
+        
+        loop
+        className="w-full"
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div
-              className="relative h-[75vh] flex items-center justify-center bg-cover bg-center"
-              style={{ backgroundImage: `url(${slide.img})` }}
-            >
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/40"></div>
-
-              {/* Content */}
-              <div className="relative z-10 text-center text-white max-w-3xl px-6">
-                <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-                  {slide.title}
-                </h1>
-                <p className="text-lg md:text-xl mb-8 text-gray-200">
-                  {slide.text}
-                </p>
-                <div className="flex flex-wrap justify-center gap-4">
-                  <Link to='/all-books'  className="btn btn-accent text-white px-6 py-3 rounded-lg text-lg shadow-md">
-                    All Books
-                  </Link>
-                  <Link to='/add-book' className="btn btn-outline btn-accent px-6 py-3 rounded-lg text-lg">
-                    Add Book
-                  </Link>
+            <div className="container mx-auto px-6 py-20">
+              <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+                
+                {/* TEXT SIDE */}
+                <div className="space-y-6">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                    {slide.title}
+                  </h1>
+                  <p className="text-gray-600 text-lg">
+                    {slide.description}
+                  </p>
+              
                 </div>
+
+                {/* IMAGE SIDE */}
+                <div className="relative">
+                  <div className="overflow-hidden ">
+                    <img
+                      src={slide.image}
+                      alt={slide.title}
+                      className="w-[750px]  h-[350px] md:h-[420px] object-cover"
+                    />
+                  </div>
+                </div>
+
               </div>
             </div>
           </SwiperSlide>

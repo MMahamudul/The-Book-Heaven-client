@@ -25,7 +25,7 @@ const TopRatedBooks = () => {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-12">
+    <section className="max-w-8xl mx-auto py-12">
       <h2 className="text-3xl font-bold mb-10 text-center text-accent">Top Rated Books</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {topRatedBooks.map((book, idx) => (
@@ -33,7 +33,7 @@ const TopRatedBooks = () => {
             key={idx}
             className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition"
           >
-            <div className="h-96 overflow-hidden">
+            <div className="h-86 overflow-hidden">
               <img
                 src={book.img}
                 alt={book.title}
