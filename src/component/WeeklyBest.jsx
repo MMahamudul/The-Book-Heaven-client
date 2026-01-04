@@ -32,8 +32,8 @@ const WeeklyBest = () => {
           />
         </div>
         <div>
-          <h2 className="text-5xl font-bold mb-4 text-accent">Book of the Week</h2>
-          <h3 className="text-3xl font-semibold text-blue-900 mb-2">{book.title}</h3>
+          <h2 className="text-5xl font-bold mb-4 text-blue-900">Book of the Week</h2>
+          <h3 className="text-3xl font-semibold text-accent mb-2">{book.title}</h3>
           <p className="text-blue-800 font-bold mb-4">by {book.author}</p>
           <p className="text-blue-500 font-bold mb-4">Language: {book.language}</p>
           <p className="text-blue-500 font-bold mb-4">Genre: {book.genre}</p>

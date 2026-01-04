@@ -104,8 +104,8 @@ const Navbar = () => {
       <div >
         <ul className="menu menu-horizontal px-1">
           {user ? (<div className="navbar-center hidden lg:flex">
-            <li className="mx-2">
-            <MyLink to="/">Home</MyLink>
+            <li className="mx-2 ">
+            <MyLink  to="/">Home</MyLink>
           </li>
           <li className="mx-2">
             <MyLink to="/all-books">All Books</MyLink>
@@ -166,16 +166,16 @@ const Navbar = () => {
         {user ? (
           <button
             onClick={handleLogout}
-            className="btn btn-outline btn-accent px-6 py-5 text-lg sm:btn-sm sm:text-sm sm:px-1 w-30 rounded-full"
+            className="btn btn-outline btn-accent px-6 py-5 text-lg sm:btn-sm sm:text-sm sm:px-1 w-30 rounded-lg"
           >
             Logout <BiLogOut size={24}/>
           </button>
         ) : (
           <Link
             to="/auth/signin"
-            className="btn btn-outline btn-accent px-6 py-5 text-lg w-30 rounded-full"
+            className="btn btn-outline btn-accent px-6 py-5 text-lg w-30 rounded-lg"
           >
-            Signin <FaSignInAlt size={24}/>
+            Login <FaSignInAlt size={28}/>
           </Link>
         )}
         <div>

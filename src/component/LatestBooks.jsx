@@ -28,13 +28,13 @@ const LatestBooks = () => {
 
     return (
         <div>
-            <h1 className='text-3xl font-bold text-accent my-4 text-center'>Latest Books</h1>
+            <h1 className='text-5xl font-bold text-blue-900 my-6 text-center'>Latest Books</h1>
             
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 my-5'>
                 {(latestBooks || []).map(book => (
                     <div 
                         key={book._id}
-                        className="bg-green-50 overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col justify-center items-center w-[330px] h-[450px]"
+                        className="bg-green-50 rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col justify-center items-center w-[300px] h-[450px]"
                     >
                         <div className='p-5'>
                             <img
